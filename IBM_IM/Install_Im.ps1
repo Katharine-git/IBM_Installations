@@ -13,7 +13,7 @@ function downloadIM ($url,$destination)
 
   }
 } 
-downloadIM $url $destination 
+ 
  
 #Extracting the contents of zip file
 function installIM ($destination,$unzip_destination){
@@ -24,22 +24,26 @@ function installIM ($destination,$unzip_destination){
 
   }
   else{
-    Write-Verbose "Something went wrong..Kindly give correct file format"
+    Write-Verbose "Something went wrong..please give correct file format"
   }
 }
 
-installIM $destination $unzip_destination
 
 #Running IBM_Installation_manager
 cmd.exe /c "installc -acceptLicense"
 
 #variables
-$path = "C:\Users\Administrator\Documents\IBM\IM.properties"
+$path = "C:\Users\Administrator\Documents\test\IBM\IBM_IM\IM.properties"
 $output = Get-Content $path | ConvertFrom-StringData
 
 $url=$output.url
 $destination = $output.destination
 $unzip_destination = $output.unzip_destination
+$VerbosePreference="continue"
+
+#function call
+downloadIM $url $destination
+installIM $destination $unzip_destination
 
 
 
