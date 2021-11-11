@@ -1,7 +1,15 @@
-creating credentials for silent install : imutilsc saveCredential -url http://www.ibm.com/software/repositorymanager/com.ibm.websphere.liberty.ND -userName vishnuprasadedathodi@gmail.com -userPassword Vishnu@1998 -secureStorageFile C:\Users\Administrator\Desktop\cred\secureFile.txt -masterPasswordFile C:\Users\Administrator\Desktop\cred\masterPassword.txt
+creating credentials for silent install : 
+C:\Program Files\IBM\tools
+imutilsc saveCredential -url <repository> -userName <IBMid> -userPassword <password> -secureStorageFile <Path to secure storage text file> -masterPasswordFile <Path to secure master password text file >
 
-command to install ibm_websphere on windows: imcl install com.ibm.websphere.liberty.v85_8.5.16003.20160831_1733 -repositories http://www.ibm.com/software/repositorymanager/com.ibm.websphere.liberty.ND -installationDirectory /QIBM/ProdData/WebSphere/AppServer/V85/ND -sharedResourcesDirectory /QIBM/UserData/InstallationManager/IMShared -acceptLicense -showProgress -prompt
+command to install ibm_websphere on windows: 
+C:\Program Files\IBM\tools
+imcl install <package> -repositories <repository> -installationDirectory <installation dir path> -sharedResourcesDirectory /QIBM/UserData/InstallationManager/IMShared -acceptLicense -showProgress -secureStorageFile <Path to secure storage text file> -masterPasswordFile <Path to secure master password text file >
 
-listing all packages : imcl listAvailablePackages -repositories http://www.ibm.com/software/repositorymanager/com.ibm.websphere.liberty.ND -prompt
+listing all packages :
+cd C:\Program Files\IBM\Installation Manager\eclipse\tools
+imcl listAvailablePackages -repositories <repository> -secureStorageFile <Path to secure storage text file> -masterPasswordFile <Path to secure master password text file >
 
-install ihs : cmd.exe /c "imcl install com.ibm.websphere.liberty.v85_8.5.16003.20160831_1733 -repositories  http://www.ibm.com/software/repositorymanager/com.ibm.websphere.IHS.v85 -installationDirectory IBM/HTTPServer85 -sharedResourcesDirectory /IBM/UserData/InstallationManager/IMShared -properties user.ihs.httpPort=80 -acceptLicense -showProgress -masterPasswordFile C:/Users/Administrator/Documents/creds/master_password.txt -secureStorageFile C:\Users\Administrator\Documents\creds\secure_storage_file.txt"
+install ihs : 
+C:\Program Files\IBM\tools
+imcl install <package> -repositories  <repository> -installationDirectory <installation dir path> -sharedResourcesDirectory /IBM/UserData/InstallationManager/IMShared -properties user.ihs.httpPort=80 -acceptLicense -showProgress -secureStorageFile <Path to secure storage text file> -masterPasswordFile <Path to secure master password text file >
